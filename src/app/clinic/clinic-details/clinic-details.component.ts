@@ -14,8 +14,15 @@ export class ClinicDetailsComponent implements OnInit {
 
   constructor(private service: DataService, private route: ActivatedRoute) { }
   clinic: Clinic;
+  type;
 
   ngOnInit(): void {
+    this.route.params.forEach((params:Params) => {
+      this.service.getClinics(params['type']).subscribe(data =>{
+        this.type=params['type'];
+      })
+    })
+
     this.route.params.forEach((params: Params) => {
       this.service.getSingleClinic(+params['id']).subscribe(data => {
         this.clinic = data;
