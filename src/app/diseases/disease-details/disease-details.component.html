@@ -1,0 +1,53 @@
+<div class="main">
+  <div class="container cont-detali" style="display: flex; justify-content: center; align-items: center">
+      <div class="row detali">
+          <div class="col-md-6">
+              <h2 class="my-3" >{{diseaseDTO?.disease.name}}</h2>
+              <p>{{diseaseDTO?.disease.description}}</p>
+          </div>
+          <div class="col-md-6">
+              <h3 class="my-3">Symptoms</h3>
+              <ul>
+                  <li *ngFor="let symptom of diseaseDTO?.disease.symptoms">{{symptom.description}}</li>
+              </ul>
+          </div>
+      </div>
+
+  </div>
+  <div class="container" style="background: #93d8f7">
+      <div class="row">
+          <div class="" style="margin: auto">
+              <div class="container py-5">
+                  <div class="row mb-4" style="justify-content: center">
+                      <div>
+                          <h3>Latest 3 experiences from other people</h3>
+                      </div>
+                  </div>
+
+                  <div class="row text-center" style="justify-content: space-between">
+
+                      <app-read-more *ngFor="let comment of diseaseDTO?.comments"
+                      class="col-xl-4 col-sm-6 mb-5"
+                      [content]="comment"
+                      [limit]="100"
+                      [completeWords]="true">
+                      </app-read-more>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+
+      <div class="row">
+          <form style="width: 68%; margin: auto" #form [formGroup]="commentForm" (ngSubmit)="onSubmit()" >
+              <div class="md-form mb-4 pink-textarea active-pink-textarea">
+                  <label for="form18">Your experience...</label>
+                  <textarea id="form18" name="description" class="md-textarea form-control" rows="3" #comment formControlName="comment"></textarea>
+              </div>
+              <input type="hidden" value="{{diseaseDTO?.disease.id}}" name="diseaseId" formControlName="diseaseId">
+              <button class="btn btn-dark" type="submit" style="width: 100%; margin-bottom: 5%" [disabled]="commentForm.invalid">Submit</button>
+          </form>
+      </div>
+  </div>
+
+</div>

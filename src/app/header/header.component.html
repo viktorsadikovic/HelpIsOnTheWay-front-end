@@ -1,0 +1,30 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="width: 75%; margin: auto;">
+
+    <a class="navbar-brand mr-auto" [routerLink]="['/home']">
+      <i class="fa fa-ambulance" style="font-size: 25px"></i>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown" style="float: right; margin-left: 50%;">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/about-us']">About us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/chooseCategory']">Search</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/diseases']">Forum</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://mojtermin.mk/map/aparat">Moj Termin</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

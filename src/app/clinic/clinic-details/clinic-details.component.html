@@ -1,0 +1,53 @@
+<div class="main" style="padding-bottom: 5%;">
+  <div class="container cont-detali">
+
+    <div class="row">
+      <div class="col-md-4" style="padding-top: 3%;">
+        <h4 class="my-3" style="text-align: center">{{clinic?.title}}</h4>
+
+                <ul>
+                    <li class="lista-element" >Location: {{clinic?.address}}</li>
+
+                    <li class="lista-element" *ngIf="clinic?.phoneNumber !== 'null'">Phone number: {{clinic?.phoneNumber}}</li>
+                    <li class="lista-element" *ngIf="clinic?.phoneNumber === 'null'">Phone number: No information available</li>
+
+                    <li class="lista-element" *ngIf="clinic?.rating === 'null'">Rating: No information available</li>
+                    <li class="lista-element" *ngIf="clinic?.rating != 'null'">Rating: {{clinic?.rating}}</li>
+                </ul>
+
+                <a class="btn btn-outline-secondary button1 bt1 kopce-detali back" th:text="Back"
+                   [routerLink]="['/pharmacies']">Back</a>
+                <button class="btn btn-outline-secondary button1 bt1 kopce-detali" id="search-route">
+                    Find route
+                </button>
+      </div>
+
+      <div class="col-md-4">
+        <div class="mapaContainer">
+          <input type="hidden" id="latEnd" value="{{clinic?.latitude}}">
+          <input type="hidden" id="lngEnd" value="{{clinic?.longitude}}">
+
+          <div id="mode-selector" class="controls">
+              <input
+                      type="radio"
+                      name="type"
+                      id="changemode-walking"
+                      checked="checked"/>
+              <label for="changemode-walking" class="changemode">Walking</label>
+
+              <input type="radio" name="type" id="changemode-transit"/>
+              <label for="changemode-transit" class="changemode">Transit</label>
+
+              <input type="radio" name="type" id="changemode-driving"/>
+              <label for="changemode-driving" class="changemode">Driving</label>
+          </div>
+          <div id="map"></div>
+      </div>
+
+    </div>
+    <div class="col-md-3" style="padding-top: 46px;">
+      <div id="right-panel"></div>
+
+    </div>
+  </div>
+</div>

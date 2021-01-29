@@ -1,0 +1,24 @@
+<div class="container">
+  <h2 class="display-2 font-weight-normal podnaslov" style="font-size: 2.5rem!important;">Search results</h2>
+  <br>
+  <table class="table  table-hover">
+      <thead>
+      <tr>
+          <th scope="col">Title</th>
+          <th scope="col">24/7 availability</th>
+          <th scope="col">Address</th>
+      </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let clinic of clinics" [routerLink]="['/clinics/', type, clinic.id]">
+          <td>
+              <a class="no-link-color" th:href="@{'/pharmacies/{id}' (id=${pharmacy.getId()})}">{{clinic?.title}}</a>
+          </td>
+          <td *ngIf="clinic.sunday === 'Open 24 hours'">Yes</td>
+          <td *ngIf="clinic.sunday != 'Open 24 hours'">No</td>
+          <td *ngIf="clinic.address !== null">{{clinic.address}}</td>
+          <td  *ngIf="clinic.address === null">No information available</td>
+      </tr>
+      </tbody>
+  </table>
+</div>

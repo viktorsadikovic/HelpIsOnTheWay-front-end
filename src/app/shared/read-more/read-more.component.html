@@ -1,0 +1,16 @@
+<div class="bg-white rounded shadow-sm py-5 px-4"><img
+  src="/assets/unknown.png" alt=""
+  width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+<h5 class="mb-0">Unknown</h5>
+<span class="small text-uppercase text-muted">{{content?.description}}</span><br>
+<br>
+<span>{{content?.published | date}}</span>
+<br>
+
+<a *ngIf="!isContentToggled" (click)="toggleContent()" i18n>Read More</a>
+<a *ngIf="isContentToggled" (click)="toggleContent()" i18n>Read Less</a>
+
+</div>
+
+
+

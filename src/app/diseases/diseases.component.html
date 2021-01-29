@@ -1,0 +1,62 @@
+<div class="container">
+  <h2 class="display-2 font-weight-normal podnaslov">Search results</h2>
+</div>
+<div class=" container active-cyan-4 mb-4" style="margin-top: 1%;">
+  <input  class="form-control" type="text" placeholder="Search" id="tableSearch" aria-label="Search">
+</div>
+
+<div class="container" >
+
+  <div class="row my-3" style="margin-top: 2rem!important;">
+      <div class="col-md-3 categories-card ">
+          <div class="card text-center btn-outline-secondary">
+              <div class="card-block" (click)="getDiseasesByType('HEART')">
+                  <p class="card-title">Heart</p>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-3 categories-card ">
+          <div class="card text-center btn-outline-secondary">
+              <div class="card-block" (click)="getDiseasesByType('NEUROLOGICAL')">
+                  <p class="card-title">Neurological</p>
+              </div>
+
+          </div>
+      </div>
+      <div class="col-md-3 categories-card " >
+        <div class="card text-center btn-outline-secondary">
+            <div class="card-block" (click)="getDiseasesByType('RESPIRATORY')">
+                <p class="card-title">Respiratory</p>
+            </div>
+
+        </div>
+    </div>
+      <div class="col-md-3 categories-card " >
+          <div class="card text-center btn-outline-secondary">
+              <div class="card-block" (click)="getDiseasesByType('DIGESTIVE')">
+                  <p class="card-title">Digestive</p>
+              </div>
+
+          </div>
+      </div>
+  </div>
+
+<div class="container">
+  <br>
+  <table class="table table-hover" >
+      <thead>
+      <tr>
+          <td>Name</td>
+          <td>Description</td>
+      </tr>
+      </thead>
+      <tbody id="myTable">
+      <tr *ngFor="let disease of diseases" [routerLink]="['/diseases', disease?.id]">
+          <td>
+              <a class="no-link-color" >{{disease?.name}}</a>
+          </td>
+          <td th:text="${#strings.abbreviate(disease.getDescription(),75)}">{{disease?.description | slice:0:75}}</td>
+      </tr>
+      </tbody>
+  </table>
+</div>
