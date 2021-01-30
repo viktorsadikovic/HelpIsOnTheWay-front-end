@@ -5,8 +5,8 @@ import { Disease, Pharmacy } from './appmodels.model'
 
 @Injectable()
 export class DataService {
-  url = "http://localhost:9091"
-  url2 = "http://localhost:9092"
+  url = "https://clinic-pharmacy-microservice.herokuapp.com"
+  url2 = "https://forum-service.herokuapp.com"
 
   constructor(private http: HttpClient){}
 
