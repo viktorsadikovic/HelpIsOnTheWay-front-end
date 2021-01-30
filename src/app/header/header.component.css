@@ -2,3 +2,7 @@ header, .navbar {
   background-color: #93d8f7 !important;
 
 }
+
+.nav-link:hover, .fa-ambulance:hover {
+  color: white !important;
+}

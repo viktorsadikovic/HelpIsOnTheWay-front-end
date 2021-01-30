@@ -55,7 +55,7 @@
           <td>
               <a class="no-link-color" >{{disease?.name}}</a>
           </td>
-          <td th:text="${#strings.abbreviate(disease.getDescription(),75)}">{{disease?.description | slice:0:75}}</td>
+          <td>{{disease?.description | slice:0:75}}</td>
       </tr>
       </tbody>
   </table>

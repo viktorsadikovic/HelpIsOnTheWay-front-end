@@ -12,7 +12,7 @@
       <tbody>
       <tr *ngFor="let pharmacy of pharmacies" [routerLink]="['/pharmacies/', pharmacy.id]">
           <td>
-              <a class="no-link-color" th:href="@{'/pharmacies/{id}' (id=${pharmacy.getId()})}">{{pharmacy?.title}}</a>
+              <a class="no-link-color">{{pharmacy?.title}}</a>
           </td>
           <td *ngIf="pharmacy.sunday === 'Open 24 hours'">Yes</td>
           <td *ngIf="pharmacy.sunday != 'Open 24 hours'">No</td>
