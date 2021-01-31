@@ -14,7 +14,10 @@ export class DiseaseDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private service: DataService, private router: Router) { }
   diseaseDTO: any;
   @Input() readMore = false;
-  commentForm : FormGroup;
+  commentForm = new FormGroup({
+    comment : new FormControl(),
+    diseaseId: new FormControl()
+  });
 
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
